@@ -1,0 +1,46 @@
+.import-tabs{display:flex;gap:18px;border-bottom:1px solid #e7ebee;margin:-3px 0 19px}
+.import-tabs button{padding:8px 1px 11px;border:0;border-bottom:2px solid transparent;background:none;font:inherit;font-size:13px;color:#8a949b;cursor:pointer}
+.import-tabs button[aria-selected=true]{color:#314f68;border-bottom-color:#53748e;font-weight:600}
+.api-title-row{display:flex;gap:12px;align-items:center;justify-content:space-between;margin:0 0 12px}
+.api-title-row h4{font-size:13px;font-weight:500;margin:0;color:#52616d}
+.api-title-row select,.api-category-tools select{font:inherit;font-size:11px;color:#65737f;border:1px solid #e4e9ec;border-radius:4px;background:#fff;padding:5px 6px;cursor:pointer;width:auto;height:32px;min-height:0;align-self:center}
+.api-scope{font-size:10px;color:#929ba3;line-height:1.7;margin:7px 0 16px}
+.api-chart-area{display:flow-root;scroll-margin-top:12px}
+.api-trend{margin:20px 0 24px}
+.api-trend-single{padding-bottom:16px;border-bottom:1px solid #e9edef}
+.api-trend>svg{width:100%;height:auto;display:block;margin-top:4px;overflow:visible}
+.api-trend-readout{font-size:11px;line-height:1.7;display:grid;gap:3px;margin-top:15px;color:#82909a}
+.api-trend-readout>strong{font-weight:400;font-size:10px;margin-bottom:2px}
+.api-trend-readout>span{display:flex;gap:12px;justify-content:space-between}
+.api-trend-readout b{font-weight:400;white-space:nowrap;color:#506574;font-variant-numeric:tabular-nums}
+.api-trend-single .api-trend-readout{display:flex;justify-content:space-between;align-items:center;margin-top:0}
+.api-trend-single .api-trend-readout>span{gap:12px}
+.api-return{display:flex;align-items:center;gap:5px;padding:0;border:0;background:transparent;font:inherit;font-size:11px;color:#54728c;cursor:pointer;margin:18px 0 -7px}
+.api-category-details>summary>span{font-size:10px;color:#98a0a6}
+.api-category-tools{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:9px;margin:15px 0 9px}
+.api-category-tools>label{display:flex;flex-direction:row;align-items:center;gap:6px;min-width:0;height:33px;color:#99a3ab;border-bottom:1px solid #dce3e8;padding:0}
+.api-category-tools>label>svg{flex:none}
+.api-category-tools select{flex:0 0 auto;min-width:79px}
+.api-category-tools input{font:inherit;font-size:12px;min-width:0;width:100%;height:30px;min-height:0;margin:0;padding:0;border:0;border-radius:0;outline:0;background:none;color:#35424d}
+.api-category-tools input::placeholder{color:#9ba4aa}
+.api-category-tools>label:focus-within{border-color:#54728c}
+.api-category-table{font-size:11px;width:100%;border-collapse:collapse;line-height:1.65;font-variant-numeric:tabular-nums}
+.api-category-table th,.api-category-table td{padding:10px 3px;border-bottom:1px solid #edf0f2;text-align:right;font-weight:400}
+.api-category-table th:first-child{text-align:left;width:40%}
+.api-category-table thead th{font-size:10px;color:#8a969e;white-space:nowrap}
+.api-category-table td{white-space:nowrap;color:#52616d}
+.api-category-table th button{font:inherit;color:#4c687f;border:0;background:none;padding:0;text-align:left;cursor:pointer;line-height:1.65}
+.api-category-table th button:hover{text-decoration:underline}
+.api-category-table tr.selected{background:#f1f5f8}
+.api-category-table .positive{color:#497c67}
+.api-category-table .negative{color:#a57464}
+.api-table-scroll{max-height:370px;overflow:auto;scrollbar-width:thin;scrollbar-color:#d5dce1 transparent}
+.api-category-table thead{position:sticky;top:0;background:white;z-index:1}
+.api-year-details{margin-top:17px}
+.api-search-empty{font-size:12px;color:#929ba3;padding:12px 0}
+.api-imports button:focus-visible,.import-tabs button:focus-visible{outline:2px solid #416f99;outline-offset:3px}
+.profile-module .api-chart-area.is-overview{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px;align-items:start}
+.profile-module .api-chart-area.is-focused{max-width:560px}
+.profile-module .api-chart-area>.api-trend{min-width:0}
+@media(max-width:760px){.profile-module .api-chart-area.is-overview{grid-template-columns:minmax(0,1fr);gap:0;max-width:560px}}
+@media print{.import-tabs,.api-category-tools,.api-return,.api-title-row select{display:none}.api-table-scroll{max-height:none;overflow:visible}.api-category-table thead{position:static}}

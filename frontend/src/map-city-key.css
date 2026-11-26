@@ -1,0 +1,72 @@
+.map-city-key {
+ position: absolute;
+ z-index: 4;
+ right: calc(var(--map-control-edge, 12px) + 45px);
+ bottom: var(--map-control-bottom, 12px);
+ color: #243e34;
+ font: 11px/1.35 -apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;
+}
+.map-city-key-toggle {
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ gap: 9px;
+ padding: 4px 7px;
+ min-height: 25px;
+ border: 1px solid #c8d7cd;
+ border-radius: 6px;
+ box-shadow: 0 1px 3px #1a423313;
+ background: #fffefaee;
+ color: inherit;
+ font: inherit;
+}
+.map-city-key-toggle span {display:inline-flex; align-items:center; gap:4px; white-space:nowrap}
+.map-city-key-toggle svg {color:#597063}
+.map-city-key-toggle[aria-expanded=true] svg {transform: rotate(180deg)}
+.map-city-key i {
+ display: inline-block;
+ box-sizing: border-box;
+ width: 7px;
+ height: 7px;
+ flex: none;
+ border: 1px solid white;
+ border-radius: 50%;
+ background: #44514b;
+ box-shadow: 0 0 0 1px #77847d;
+}
+.map-city-key i[data-role=capital] {width:9px;height:9px;border:2px solid white;background:#1a5945;box-shadow:0 0 0 1.5px #1a5945}
+.map-city-key i[data-role=seat] {background:white;box-shadow:0 0 0 1.5px #23604b}
+.map-city-key-list {
+ position: absolute;
+ bottom: calc(100% + 5px);
+ right: 0;
+ width: max-content;
+ min-width: 150px;
+ max-width: min(270px,75vw);
+ max-height: min(230px,42dvh);
+ padding: 4px;
+ overflow: auto;
+ border: 1px solid #d4dfd6;
+ border-radius: 9px;
+ background: #fffefa;
+ box-shadow: 0 5px 20px #21392d25;
+}
+.map-city-key-list[hidden] {display:none}
+.map-city-key-list button {
+ display: flex; align-items: center; gap: 8px; width: 100%;
+ padding: 6px 8px; border: 0; border-radius: 5px; background: transparent; color: inherit; text-align: left;
+}
+.map-city-key-list button:hover {background: #eef3ec}
+.map-city-key-list button>span {flex: 1; font-size: 13px; font-weight: 550}
+.map-city-key-list small {display: block; margin-top: 2px; color: #58675e; font: 10px/1.35 system-ui,sans-serif}
+.map-city-key-list button svg {color: #64786c}
+.map-city-key button:focus-visible {outline: 2px solid #265f48; outline-offset: -2px}
+.thematic-mode .map-city-key {bottom: calc(var(--map-control-bottom, 12px) - 11px)}
+@media(max-width: 600px) {
+ .map-workspace .map-city-key {
+  right: auto; left: var(--map-control-edge, 10px);
+  bottom: calc(var(--map-control-bottom, 12px) + 28px);
+ }
+ .map-city-key-list {left:0; right:auto; max-height: min(170px,24dvh)}
+ .map-city-key-toggle {min-height:28px}
+}

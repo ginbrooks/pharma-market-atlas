@@ -1,0 +1,7 @@
+.country-name-with-membership{display:flex;flex-wrap:wrap;align-items:center;gap:8px;min-width:0}
+.country-name-with-membership>span{min-width:0;overflow-wrap:anywhere}
+.country-name-with-membership>.pics-badge{display:inline-flex;align-items:center;flex:none;white-space:nowrap;font-size:11px;font-weight:600;line-height:1.4;letter-spacing:.02em;color:#537086;background:#f2f6f8;border:1px solid #d7e1e8;border-radius:4px;padding:3px 6px;text-decoration:none}
+.country-name-with-membership>.pics-badge:hover{color:#2f5b7c;background:#e9f1f6;border-color:#aec5d6}
+.country-name-with-membership>.pics-badge:focus-visible{outline:2px solid #426d99;outline-offset:3px}
+@media(max-width:600px){.country-name-with-membership{gap:8px}.country-name-with-membership>.pics-badge{font-size:10px;padding:3px 5px}}
+@media print{.country-name-with-membership>.pics-badge{color:#405264;background:transparent}}

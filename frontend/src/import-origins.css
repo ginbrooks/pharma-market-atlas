@@ -1,0 +1,45 @@
+.import-origins{color:#35424d;margin:4px 0 24px}
+.origin-heading{display:flex;align-items:baseline;justify-content:space-between;gap:12px}
+.origin-heading h4{margin:0;font-size:14px;font-weight:600;line-height:1.6}
+.origin-heading>span{font-size:13px;font-variant-numeric:tabular-nums;white-space:nowrap;color:#4e5d68}
+.origin-caption{margin:5px 0 18px;font-size:11px;color:#82909a;line-height:1.6}
+.origin-chart-tabs{display:flex;gap:18px;border-bottom:1px solid #e8ecef;margin-bottom:15px}
+.origin-chart-tabs button{border:0;border-bottom:2px solid transparent;background:none;color:#85919a;font:inherit;font-size:12px;padding:0 0 9px;cursor:pointer}
+.origin-chart-tabs button[aria-pressed=true]{color:#315c74;border-bottom-color:#477a93;font-weight:600}
+.origin-chart-tabs button:focus-visible{outline:2px solid #477a93;outline-offset:3px}
+.origin-chart-expanded{max-height:530px;overflow:auto;overscroll-behavior:contain;padding-right:6px}
+.origin-axis{display:flex;justify-content:space-between;margin-right:105px;font-size:10px;color:#909ba4;font-variant-numeric:tabular-nums;margin-bottom:12px}
+.origin-chart-rows{list-style:none;padding:0;margin:0;display:grid;gap:14px}
+.origin-row-label{display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin-bottom:5px;font-size:12px;line-height:1.45}
+.origin-row-label>span{overflow-wrap:anywhere;min-width:0}
+.origin-row-label strong{font-size:12px;font-weight:600;white-space:nowrap;font-variant-numeric:tabular-nums}
+.origin-row-body{display:grid;grid-template-columns:minmax(0,1fr) 95px;gap:10px;align-items:center}
+.origin-bar-track{height:12px;background:#f0f3f5;border-radius:2px;overflow:hidden}
+.origin-column{height:100%;border-radius:2px;min-width:0}
+.origin-row-body>span{color:#7d8a95;font-size:10px;text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.origin-chart-more{margin:3px 0 18px}
+.origin-details{margin-top:16px}
+.origin-bar{display:flex;width:100%;height:18px;border-radius:3px;overflow:hidden;background:#f0f3f5}
+.origin-bar>span{flex:none;height:100%;box-shadow:inset -1px 0 0 #ffffff70}
+.origin-groups{margin:17px 0 16px}
+.origin-groups>div{display:flex;align-items:baseline;justify-content:space-between;gap:12px;padding:7px 0}
+.origin-groups dt{display:flex;align-items:center;gap:8px;font-size:12px;white-space:nowrap}
+.origin-groups dt>i{display:inline-block;flex:none;width:8px;height:8px;border-radius:2px}
+.origin-groups dd{display:flex;align-items:baseline;gap:12px;margin:0;font-size:11px;font-variant-numeric:tabular-nums}
+.origin-groups dd>span{color:#81909b;white-space:nowrap}
+.origin-groups dd>strong{font-weight:500;min-width:57px;text-align:right}
+.origin-details>summary{display:flex;align-items:center;gap:7px;width:fit-content;cursor:pointer;font-size:12px;color:#54728c;list-style:none}
+.origin-details>summary::-webkit-details-marker{display:none}
+.origin-details[open]>summary svg{transform:rotate(180deg)}
+.origin-partner-scroll{max-height:360px;overflow:auto;margin-top:12px;overscroll-behavior:contain}
+.origin-partner-scroll table{border-collapse:collapse;width:100%;font-size:11px;font-variant-numeric:tabular-nums}
+.origin-partner-scroll th,.origin-partner-scroll td{font-weight:400;text-align:right;padding:10px 3px;border-bottom:1px solid #edf0f2}
+.origin-partner-scroll th:first-child{text-align:left;overflow-wrap:anywhere;max-width:140px;padding-right:12px}
+.origin-partner-scroll td{white-space:nowrap}
+.origin-partner-scroll thead th{color:#83909a;background:white;position:sticky;top:0}
+.origin-more{font:inherit;font-size:11px;color:#54728c;border:0;background:none;padding:12px 0 0;cursor:pointer}
+.origin-more:hover,.origin-source:hover{text-decoration:underline}
+.origin-details summary:focus-visible,.origin-more:focus-visible,.origin-partner-scroll:focus-visible{outline:2px solid #416f99;outline-offset:3px}
+.origin-source{display:block;width:fit-content;margin:15px 0 0;font-size:11px;line-height:1.5;color:#89949e;text-decoration:none}
+.import-origins+.formulation-trends{border-top:1px solid #e7e9eb;padding-top:20px}
+@media print{.origin-column{-webkit-print-color-adjust:exact;print-color-adjust:exact}.origin-details,.origin-more,.origin-chart-tabs{display:none}.import-origins{break-inside:avoid}.origin-chart-expanded{max-height:none;overflow:visible}}

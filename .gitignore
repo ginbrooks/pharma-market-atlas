@@ -1,0 +1,16 @@
+.DS_Store
+.env
+.env.*
+!.env.example
+.venv/
+.runtime/
+__pycache__/
+*.pyc
+*.sqlite*
+*.db
+*.pem
+*.key
+.pytest_cache/
+frontend/node_modules/
+frontend/dist/
+*.tsbuildinfo

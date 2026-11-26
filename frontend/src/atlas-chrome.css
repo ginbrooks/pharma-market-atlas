@@ -1,0 +1,237 @@
+.map-workspace {
+  --atlas-ink: #203832;
+  --atlas-forest: #205746;
+  --atlas-paper: #fffefa;
+  --atlas-line: #d9e1d9;
+  --atlas-float: 0 2px 5px #162f2c12, 0 8px 24px #162f2c13;
+  --atlas-ease: cubic-bezier(.2,.78,.22,1);
+}
+.map-workspace .maps-searchbar,
+.map-workspace .maps-search-dropdown,
+.map-workspace .maps-menu,
+.map-workspace .maps-base-toggle,
+.map-workspace .maps-metric-control,
+.map-workspace .maps-year-control,
+.map-workspace .maps-navigation {
+  border: 1px solid var(--atlas-line);
+  background: var(--atlas-paper);
+  box-shadow: var(--atlas-float);
+}
+.map-workspace .maps-searchbar {
+  border-radius: 13px;
+  height: 54px;
+  gap: 9px;
+  padding: 0 10px 0 15px;
+}
+.map-workspace .maps-searchbar:focus-within {border-color: #678d7d}
+.map-workspace .maps-brand-icon {
+  display: inline-flex;
+  align-items: center;
+  width: auto;
+  height: 30px;
+  padding: 0 13px 0 0;
+  margin-right: 2px;
+  border: 0;
+  border-right: 1px solid var(--atlas-line);
+  border-radius: 0;
+  color: var(--atlas-ink);
+  background: none;
+  white-space: nowrap;
+  font: 650 17px/1 "Songti SC", "Noto Serif CJK SC", SimSun, serif;
+  letter-spacing: .025em;
+}
+.map-workspace .maps-searchbar input {height: 42px; padding: 0; font-size: 14px; box-shadow: none; outline: none}
+.map-workspace .maps-searchbar input::placeholder {font-size: inherit; color: #626e68}
+.map-workspace .maps-search-glyph {width: 16px; color: #62756c}
+.map-workspace .maps-search-divider {margin: 0 1px; background: var(--atlas-line)}
+.map-workspace .maps-filter-button,
+.map-workspace .maps-search-clear {width: 32px; height: 34px; color: var(--atlas-ink); border-radius: 7px}
+.map-workspace .maps-filter-button.active,
+.map-workspace .maps-filter-button:hover,
+.map-workspace .maps-search-clear:hover {color: var(--atlas-forest); background: #eaf1e9}
+.atlas-search-key {
+  display: grid;
+  place-items: center;
+  min-width: 19px;
+  height: 21px;
+  color: #63746a;
+  border: 1px solid var(--atlas-line);
+  border-radius: 4px;
+  font: 12px/1 system-ui, sans-serif;
+}
+.map-workspace .maps-search-dropdown {border-radius: 13px; margin-top: 7px}
+.map-workspace .maps-results-top strong {font-weight: 650; color: var(--atlas-ink)}
+.map-workspace .maps-quick-markets button {background: #eff4ed; border-color: #dbe6dc; color: #385648; border-radius: 6px}
+.map-workspace .maps-quick-markets button:hover {background: #dfece1}
+.map-workspace .country-row.keyboard-active,
+.map-workspace .maps-results-list .country-row:is(:hover,.selected) {background: #eef5ee}
+.map-workspace .maps-results-list .country-value {font-variant-numeric: tabular-nums}
+.map-workspace .maps-top-tools {justify-content: flex-end; align-items: flex-start}
+.map-workspace .maps-layer-controls {justify-content: flex-end}
+.map-workspace .maps-navigation {
+  margin-left: 0;
+  gap: 0;
+  height: 42px;
+  padding: 3px;
+  align-items: center;
+  border-radius: 11px;
+}
+.map-workspace .maps-navigation button {
+  height: 34px;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+  color: var(--atlas-ink);
+  border-radius: 7px;
+}
+.map-workspace .maps-navigation button:hover,
+.map-workspace .maps-menu-toggle[aria-expanded=true] {background: #e9f0e9}
+.map-workspace .maps-menu-toggle {width: 35px}
+.map-workspace .maps-compare-shortcut {padding: 0 10px}
+.map-workspace .maps-base-toggle {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0;
+  height: 42px;
+  padding: 3px;
+  border-radius: 11px;
+}
+.map-workspace .maps-base-toggle::before {
+  position: absolute;
+  content: "";
+  z-index: -1;
+  top: 3px;
+  bottom: 3px;
+  left: 3px;
+  width: calc((100% - 6px)/2);
+  border-radius: 8px;
+  background: var(--atlas-forest);
+  transition: transform 220ms var(--atlas-ease);
+}
+.map-workspace .maps-base-toggle[data-thematic=true]::before {transform: translateX(100%)}
+.map-workspace .maps-base-toggle button {
+  position: relative;
+  height: 100%;
+  padding: 0 11px;
+  justify-content: center;
+  border-radius: 8px;
+  background: transparent;
+  box-shadow: none;
+  color: #41534a;
+}
+.map-workspace .maps-base-toggle button:hover:not(.active) {color: var(--atlas-forest); background: #eaf1e9}
+.map-workspace .maps-base-toggle button.active {color: white; background: transparent; box-shadow: none; font-weight: 600}
+.map-workspace .maps-year-control,
+.map-workspace .maps-metric-control {height: 42px; border-radius: 10px; color: var(--atlas-ink)}
+.map-workspace .maps-year-control {font-size: 13px; font-variant-numeric: tabular-nums}
+.map-workspace .maps-menu {border-radius: 13px; transform-origin: right top}
+.map-workspace .maps-menu-brand .brand strong {font-family: "Songti SC", "Noto Serif CJK SC", SimSun, serif; color: var(--atlas-ink)}
+.map-workspace .maps-menu>button:hover {color: var(--atlas-forest); background: #eff4ed}
+.map-workspace .maps-bottom-brand small {margin-left: 0; color: #425953}
+.map-workspace .atlas-place-label.country-name.is-selected {background: var(--atlas-forest); border-radius: 8px}
+.map-workspace .atlas-place-label.country-name:hover:not(.is-selected) {color: var(--atlas-forest)}
+.map-workspace .selected-swatch {border-color: var(--atlas-forest)}
+.map-workspace .maps-search-area :where(button,select):focus-visible,
+.map-workspace .maps-top-tools :where(button,select):focus-visible,
+.map-workspace .maps-menu :where(button,a):focus-visible {
+  outline: 2px solid #316d59;
+  outline-offset: 2px;
+}
+@keyframes atlas-open-toolbar {
+  from {opacity: 0; transform: translateY(-5px)}
+  to {opacity: 1; transform: translateY(0)}
+}
+@media (prefers-reduced-motion: no-preference) {
+  .map-workspace :is(.maps-search-dropdown,.maps-menu,.maps-metric-control,.maps-floating-legend) {
+    animation: atlas-open-toolbar 180ms var(--atlas-ease) both;
+  }
+}
+@media (max-width: 1050px) {
+  .map-workspace .maps-base-toggle button {padding: 0 9px}
+}
+@media (min-width: 801px) and (max-width: 980px) {
+  .map-workspace .maps-layer-controls {max-width: none}
+  .map-workspace .maps-metric-control {position: absolute; top: 49px; right: 0}
+}
+@media (max-width: 600px) {
+  .map-workspace .maps-top-tools {top: 74px; justify-content: space-between}
+  .map-workspace .maps-layer-controls {justify-content: flex-start; max-width: calc(100% - 87px)}
+  .map-workspace .maps-brand-icon {font-size: 16px; padding-right: 11px}
+  .map-workspace .maps-searchbar {gap: 7px; padding: 0 9px 0 13px}
+  .map-workspace .maps-searchbar input {font-size: 16px}
+  .map-workspace .maps-searchbar input::placeholder {font-size: 13px}
+  .map-workspace .maps-search-glyph {width: 14px}
+  .map-workspace .maps-navigation,
+  .map-workspace .maps-metric-control,
+  .map-workspace .maps-year-control,
+  .map-workspace .maps-base-toggle {height: 38px}
+  .map-workspace .maps-navigation button {height: 30px; width: 33px; padding: 0; justify-content: center}
+  .map-workspace .maps-year-control {font-size: 12px}
+  .map-workspace .maps-menu {top: 119px}
+}
+@media (hover: none), (max-width: 600px) { .atlas-search-key {display: none} }
+
+.map-workspace .map-info-panel {border-color: var(--atlas-line); border-radius: 13px; box-shadow: var(--atlas-float)}
+@keyframes atlas-open-sheet {
+  from {opacity: .15; transform: translate(var(--enter-x),var(--enter-y))}
+  to {opacity: 1; transform: translate(0,0)}
+}
+@media (prefers-reduced-motion: no-preference) {
+  .map-workspace .map-info-panel {--enter-x: -14px; --enter-y: 0px; animation: atlas-open-sheet 240ms var(--atlas-ease)}
+}
+@media (max-width: 600px) {
+  .map-workspace .map-info-panel {--enter-x: 0px; --enter-y: 18px; border-radius: 16px 16px 0 0}
+}
+
+.auth-page.atlas-signin {
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: #f1f4ef;
+}
+.atlas-signin .auth-left {
+  background: #fffefa;
+  width: min(420px,100%);
+  min-height: 0;
+  padding: clamp(26px,5vw,42px);
+  border: 1px solid #d9e1d9;
+  border-radius: 16px;
+  box-shadow: 0 10px 40px #163a2910;
+}
+.atlas-signin .brand strong {color: #205746; font: 600 20px/1.4 "Songti SC","Noto Serif CJK SC",SimSun,serif}
+.atlas-signin .auth-form-wrap {margin: 30px 0 0}
+.atlas-signin .auth-form-wrap h1 {color: #203832; font-size: 24px; margin-bottom: 23px}
+.atlas-signin .auth-submit {background: #205746; border-color: #205746}
+
+.map-workspace {
+  --map-control-edge: 16px;
+  --map-control-bottom: 16px;
+}
+.map-workspace.has-comparison {--map-control-bottom: 84px}
+.map-workspace .map-surface .maplibregl-ctrl-bottom-left {
+  left: var(--map-control-edge);
+  bottom: 5px;
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+}
+.map-workspace .map-surface .maplibregl-ctrl-bottom-left .maplibregl-ctrl {float: none; margin: 0}
+.view-map .map-workspace .map-surface .maplibregl-ctrl-bottom-right {
+  right: var(--map-control-edge);
+  bottom: var(--map-control-bottom);
+}
+.view-map .map-workspace .map-surface .map-reset {
+  right: var(--map-control-edge);
+  bottom: calc(var(--map-control-bottom) + 84px);
+}
+@media (max-width: 600px) {
+  .map-workspace {--map-control-edge: 10px; --map-control-bottom: 12px}
+  .map-workspace.has-country {--map-control-bottom: calc(min(59dvh,610px) + 8px)}
+  .map-workspace.has-country.has-comparison {--map-control-bottom: calc(min(59dvh,610px) + 70px)}
+  .map-workspace .map-surface .maplibregl-ctrl-bottom-left {bottom: var(--map-control-bottom)}
+  .map-workspace .maps-year-control {width: 69px; padding: 0 3px 0 8px; flex: none}
+}
+
+.atlas-signin .signin-back {margin-top: 20px}

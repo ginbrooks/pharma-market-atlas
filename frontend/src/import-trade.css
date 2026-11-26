@@ -1,0 +1,51 @@
+.import-trade{padding:24px 0;border-top:1px solid #e7e9eb;color:#35424d}
+.import-heading{display:flex;align-items:center;gap:8px;margin-bottom:15px}
+.import-heading h3{font-size:15px;font-weight:600;margin:0}
+.import-heading>span{margin-left:auto;color:#87919a;font-size:12px}
+.import-heading>svg{color:#89949c;flex-shrink:0}
+.import-summary{font-size:14px;line-height:1.9;margin:0 0 14px;overflow-wrap:anywhere}
+.import-attribution{display:block;width:fit-content;font-size:11px;color:#89949e;text-decoration:none;margin-top:-7px}
+.import-attribution:hover{color:#54728c}
+.import-trend-featured{padding-bottom:18px;border-bottom:1px solid #e9edef}
+.import-trend-featured .import-trend-values{display:flex;align-items:center;justify-content:space-between;padding:0;background:none;margin-top:0}
+.import-trend-featured .import-trend-values strong{margin:0}
+.import-trend-featured .import-trend-values span{gap:14px}
+.import-details>summary{display:flex;align-items:center;gap:7px;width:fit-content;cursor:pointer;font-size:12px;color:#54728c;list-style:none}
+.import-details>summary::-webkit-details-marker{display:none}
+.import-details[open]>summary svg{transform:rotate(180deg)}
+.import-scope,.import-data-note,.import-calculation{font-size:12px;color:#717c86;line-height:1.8;margin:14px 0}
+.import-year-table{width:100%;border-collapse:collapse;font-size:12px;margin:15px 0 20px}
+.import-year-table th,.import-year-table td{padding:10px 3px;border-bottom:1px solid #edf0f2;text-align:right;font-weight:400}
+.import-year-table th:first-child{text-align:left}
+.import-year-table thead th{color:#87919a;font-size:11px}
+.import-year-table td:last-child{color:#7c8790;white-space:nowrap}
+.import-details h4{font-size:12px;font-weight:600;margin:18px 0 8px}
+.import-details h4 small{font-size:11px;color:#8c969e;margin-left:8px;font-weight:400}
+.import-categories{list-style:none;padding:0;margin:0}
+.import-categories li{display:flex;justify-content:space-between;gap:14px;padding:10px 0;border-bottom:1px solid #edf0f2}
+.import-categories li>div:last-child{text-align:right;flex-shrink:0}
+.import-categories strong,.import-categories span{font-size:12px;font-weight:400;line-height:1.6}
+.import-categories small{display:block;font-size:10px;color:#87929b;line-height:1.8}
+.import-source-meta,.import-file{font-size:10px;color:#939ca3;line-height:1.7;overflow-wrap:anywhere}
+.import-source-links{display:grid;gap:10px;margin:12px 0}
+.import-source-links a{display:flex;justify-content:space-between;gap:8px;font-size:12px;color:#53708a;text-decoration:none;line-height:1.6}
+.import-source-links a:hover{text-decoration:underline}
+.import-source-links svg{flex-shrink:0;margin-top:3px}
+.import-trend{margin:20px 0}
+.import-trend-caption{display:flex;justify-content:space-between;font-size:12px;color:#596670}
+.import-trend-caption small{font-size:11px;color:#89939c}
+.import-trend svg{display:block;width:100%;height:auto;margin:4px 0 0;overflow:visible}
+.import-chart-grid{stroke:#e8edf0;stroke-width:1;stroke-dasharray:3 4}
+.import-axis{font-size:11px;fill:#8a949e}
+.import-trend-legend{display:grid;grid-template-columns:1fr 1fr;gap:12px 10px}
+.import-trend-legend button{display:flex;align-items:flex-start;gap:7px;text-align:left;padding:0;border:0;background:none;color:#51606c;font:inherit;font-size:11px;line-height:1.5;cursor:pointer;transition:opacity .15s}
+.import-trend-legend button.muted{opacity:.35}
+.import-trend-legend button:focus-visible{outline:2px solid #416f99;outline-offset:4px}
+.import-trend-legend i{width:13px;height:3px;margin-top:7px;flex-shrink:0;border-radius:2px}
+.import-trend-legend small{display:block;color:#8a949e;font-size:10px}
+.import-trend-values{margin-top:16px;padding:12px;background:#f7f9fa;border-radius:5px;font-size:11px;line-height:1.7}
+.import-trend-values strong{display:block;font-size:11px;font-weight:500;margin-bottom:6px;color:#576672}
+.import-trend-values span{display:flex;justify-content:space-between;gap:10px;color:#86919b}
+.import-trend-values b{color:#52616c;font-weight:400}
+.import-trend-note,.import-chart-empty{font-size:10px;color:#89949e;line-height:1.6;margin:12px 0}
+@media print{.import-details>summary{display:none}.import-details:not([open])>*:not(summary){display:block}.import-year-table{display:table!important}.import-trade{break-inside:avoid}}

@@ -1,0 +1,68 @@
+{
+  "checked_at": "2026-10-28",
+  "programs": [
+    {
+      "id": "eu-eea",
+      "label": "EU/EEA",
+      "name": "欧洲共同药品批准体系",
+      "kind": "regional",
+      "iso2": [
+        "AT",
+        "BE",
+        "BG",
+        "HR",
+        "CY",
+        "CZ",
+        "DK",
+        "EE",
+        "FI",
+        "FR",
+        "DE",
+        "GR",
+        "HU",
+        "IE",
+        "IT",
+        "LV",
+        "LT",
+        "LU",
+        "MT",
+        "NL",
+        "PL",
+        "PT",
+        "RO",
+        "SK",
+        "SI",
+        "ES",
+        "SE",
+        "IS",
+        "LI",
+        "NO"
+      ],
+      "source_url": "https://www.ema.europa.eu/en/about-us/what-we-do/authorisation-medicines",
+      "note": "集中批准与国家互认是不同路径；英国、瑞士不在此范围。",
+      "membership_source_keys": [
+        "eu-members",
+        "eea"
+      ]
+    },
+    {
+      "id": "gcc-dr",
+      "label": "GCC-DR",
+      "name": "海湾中央药品注册",
+      "kind": "regional",
+      "iso2": [
+        "BH",
+        "KW",
+        "OM",
+        "QA",
+        "SA",
+        "AE"
+      ],
+      "source_url": "https://www.ghc.sa/en/central-registration/",
+      "note": "海湾六国中央注册；仍需核对目标国本地手续。",
+      "membership_source_keys": [
+        "gcc-members"
+      ]
+    }
+  ]
+}
