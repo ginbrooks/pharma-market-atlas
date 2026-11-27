@@ -1,4 +1,5 @@
-import {ArrowUpRight,ChevronDown} from 'lucide-react';
+import type {ReactNode} from 'react';
+import {ChevronDown} from 'lucide-react';
 import type {Cell,Detail,Indicator,Profile} from './types';
 import {compact,safeUrl} from './lib';
 import {visibleMarketContext} from './gmp-access';
@@ -8,53 +9,76 @@ import CountryLanguages from './CountryLanguages';
 import './country-workbench.css';
 import './country-sheet.css';
 
+type MetricProps = {
+ label:string;
+ value:ReactNode;
+ year:number|null;
+ url:string;
+ rank?:string;
+};
+
+function OverviewMetric({label,value,year,url,rank}:MetricProps){
+ const href=safeUrl(url);
+ const source=href==='#'?'':new URL(href).hostname;
+ const sourceName=source.endsWith('.worldbank.org')?'世界银行':source;
+ return <details className="overview-metric">
+  <summary>
+   <span>{label}</span>
+   <strong>{value}</strong>
+   {rank&&<small className="overview-metric-rank">{rank}</small>}
+  </summary>
+  <div className="overview-metric-source">
+   {sourceName&&<a href={href} target="_blank" rel="noreferrer">{sourceName}</a>}
+   {year!=null&&<time dateTime={String(year)}>{year} 年</time>}
+  </div>
+ </details>;
+}
+
 export function MarketContext({profile}:{profile:Profile|null}){
  const rows=visibleMarketContext(profile);
  if(!rows.length)return null;
  return <details className="market-context"><summary><span>经营环境</span><ChevronDown size={14}/></summary>
-  <div>{rows.map(row=><article key={row.id}>
-   <div><h4>{row.label}</h4><strong>{row.value.toLocaleString('zh-CN',{maximumFractionDigits:2})}%</strong></div>
-   <p>{row.definition}</p><a href={safeUrl(row.source_url)} target="_blank" rel="noreferrer">{row.year} 年 · 世界银行<ArrowUpRight size={11}/></a>
-  </article>)}</div>
+  <div className="overview-metric-list">{rows.map(row=>
+   <OverviewMetric key={row.id} label={row.label}
+    value={row.value.toLocaleString('zh-CN',{maximumFractionDigits:2})+'%'}
+    year={row.year} url={row.source_url}/>
+  )}</div>
  </details>;
 }
 
-function MetricValue({indicator,cell}:{indicator:Indicator;cell:Cell}){
+function metricValue(indicator:Indicator,cell:Cell){
  const formatted=compact(cell.value,indicator.id);
  if(indicator.id==='population'){
   const [number,scale='']=formatted.split(' ');
-  return <strong>{number}<small>{scale}人</small></strong>;
+  return <>{number}<small>{scale}人</small></>;
  }
- if(formatted.startsWith('$'))return <strong>{formatted.slice(1)}<small>美元</small></strong>;
- if(formatted.endsWith('%'))return <strong>{formatted.slice(0,-1)}<small>%</small></strong>;
- return <strong>{formatted}</strong>;
+ if(formatted.startsWith('$'))return <>{formatted.slice(1)}<small>美元</small></>;
+ if(formatted.endsWith('%'))return <>{formatted.slice(0,-1)}<small>%</small></>;
+ return formatted;
 }
 
-export default function CountryOverview({detail,onEvidence}:{detail:Detail;onEvidence:(e:{indicator:Indicator;cell:Cell;country:string})=>void}){
- const primary=detail.indicators.filter(i=>['population','gdp_pc','health_pc','government_share'].includes(i.id)&&detail.latest[i.id]?.value!=null);
- const demographic=detail.indicators.filter(i=>['life_expectancy','age65_share'].includes(i.id)&&detail.latest[i.id]?.value!=null);
- const showEvidence=(indicator:Indicator)=>onEvidence({indicator,cell:detail.latest[indicator.id],country:detail.country.name});
+export function Fundamentals({detail}:{detail:Detail}){
+ const available=detail.indicators.filter(indicator=>detail.latest[indicator.id]?.value!=null);
+ const primary=available.filter(indicator=>['population','gdp_pc','health_pc','government_share'].includes(indicator.id));
+ const demographic=available.filter(indicator=>['life_expectancy','age65_share'].includes(indicator.id));
+ function renderMetric(indicator:Indicator){
+  const cell=detail.latest[indicator.id];
+  const rank=indicator.id==='gdp_pc'&&cell.rank&&cell.total&&cell.rank<=cell.total
+   ?`第 ${cell.rank} / ${cell.total} 位`:undefined;
+  return <OverviewMetric key={indicator.id} label={indicator.name} value={metricValue(indicator,cell)}
+   year={cell.year} url={indicator.source_url} rank={rank}/>;
+ }
+ return <>
+  {primary.length>0&&<div className="overview-core-metrics">{primary.map(renderMetric)}</div>}
+  {demographic.length>0&&<div className="overview-demographics overview-metric-list">{demographic.map(renderMetric)}</div>}
+ </>;
+}
+
+export default function CountryOverview({detail}:{detail:Detail}){
  return <div className="country-overview">
-  {(primary.length>0||demographic.length>0)&&<section className="overview-fundamentals" aria-label="市场基本面">
+  {detail.indicators.some(indicator=>detail.latest[indicator.id]?.value!=null)&&<section className="overview-fundamentals" aria-label="市场基本面">
    <div className="workbench-heading"><h3>市场基本面</h3></div>
-   {primary.length>0&&<div className="overview-core-metrics">{primary.map(indicator=>{
-    const cell=detail.latest[indicator.id];
-    return <button type="button" key={indicator.id} onClick={()=>showEvidence(indicator)} title={`查看${indicator.name}的统计口径与来源`}>
-     <span>{indicator.name}<ArrowUpRight size={13} aria-hidden="true"/></span>
-     <MetricValue indicator={indicator} cell={cell}/>
-     <small className="overview-metric-meta">
-      {cell.year&&<span>{cell.year} 年</span>}
-      {indicator.id==='gdp_pc'&&cell.rank!=null&&cell.total!=null&&cell.rank>0&&cell.total>=cell.rank&&<span className="overview-metric-rank" title={`同年参与排名的 ${cell.total} 个经济体中排名第 ${cell.rank}`}>第 {cell.rank} / {cell.total} 位</span>}
-     </small>
-    </button>;
-   })}</div>}
-   {demographic.length>0&&<div className="overview-demographics">{demographic.map(indicator=>{
-    const cell=detail.latest[indicator.id];
-    return <button type="button" key={indicator.id} onClick={()=>showEvidence(indicator)} title={`查看${indicator.name}的统计口径与来源`}>
-     <span>{indicator.name}{cell.year&&<small>{cell.year} 年</small>}</span>
-     <strong>{compact(cell.value,indicator.id)}<ArrowUpRight size={12} aria-hidden="true"/></strong>
-    </button>;
-   })}</div>}
+   <Fundamentals detail={detail}/>
   </section>}
   <CountryLanguages profile={detail.profile}/>
   <ReligionBasics iso3={detail.country.iso3} profile={detail.profile} countryName={detail.country.name}/>

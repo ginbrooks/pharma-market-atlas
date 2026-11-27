@@ -4,7 +4,7 @@
 .country-sections-tabs{display:flex;gap:4px;flex-shrink:0;padding:0 18px;border-bottom:1px solid #e6eaed;background:#fff}
 .country-sections-tabs button{flex:1;min-width:0;border:0;border-bottom:2px solid transparent;background:none;color:#7e8992;padding:13px 5px 12px;font:inherit;font-size:13px;cursor:pointer;white-space:nowrap}
 .country-sections-tabs button[aria-selected=true]{color:#315d76;border-bottom-color:#477a93;font-weight:600}
-.country-sections-tabs button:focus-visible,.overview-core-metrics button:focus-visible,.overview-demographics button:focus-visible{outline:2px solid #477a93;outline-offset:-3px}
+.country-sections-tabs button:focus-visible{outline:2px solid #477a93;outline-offset:-3px}
 .country-workbench .drawer-scroll{padding-top:20px}
 .country-workbench .drawer-panel{min-height:0;outline:none}
 .country-workbench .drawer-panel>.import-trade,.country-workbench .drawer-panel>.gmp-access,.country-workbench .drawer-panel>.regulatory-basics,.country-workbench .drawer-panel>.medicine-sites{border-top:0;padding-top:0}
@@ -29,32 +29,13 @@
 .overview-import-foot>a{display:inline-flex;align-items:center;gap:3px;flex-shrink:0;color:#7c8f9e;text-decoration:none}
 .overview-import-foot>a:hover{text-decoration:underline}
 .overview-fundamentals{padding-bottom:20px}
-.overview-core-metrics{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;background:#e7ebee;border:1px solid #e7ebee;border-radius:5px;overflow:hidden}
-.overview-core-metrics button{display:flex;flex-direction:column;align-items:flex-start;background:#fff;border:0;padding:14px 13px;text-align:left;color:#344b5d;cursor:pointer;min-width:0}
-.overview-core-metrics button:hover{background:#f6f9fb}
-.overview-core-metrics button>span{font-size:11px;color:#778793;line-height:1.5;display:flex;align-items:center;justify-content:space-between;gap:7px;width:100%}
-.overview-core-metrics button>span svg{color:#9aa5ad}
-.overview-core-metrics button>strong{font-size:21px;line-height:1.2;font-weight:500;margin:7px 0 5px;font-variant-numeric:tabular-nums}
-.overview-core-metrics button>small{color:#8e99a2;font-size:10px;line-height:1.5}
-.overview-core-metrics button>small.overview-metric-rank{color:#4b7197;margin-top:5px;font-variant-numeric:tabular-nums}
-.overview-demographics{margin-top:8px}
-.overview-demographics button{display:flex;align-items:center;justify-content:space-between;gap:16px;width:100%;padding:10px 1px;border:0;border-bottom:1px solid #edf0f2;background:none;color:#667783;cursor:pointer;font:inherit;font-size:12px}
-.overview-demographics button>span,.overview-demographics button>strong{display:flex;align-items:baseline;gap:8px}
-.overview-demographics button strong{font-size:13px;font-weight:500;color:#3e5361;font-variant-numeric:tabular-nums}
-.overview-demographics small{font-size:10px;font-weight:400;color:#94a0a8}
 .country-overview>.market-access .business-module{padding-top:19px}
 .country-overview .drug-payment-sentence{font-size:13px;line-height:1.9}
 .market-context{border-top:1px solid #e5e9ed;padding:17px 0;margin-top:4px}
 .market-context>summary{display:flex;align-items:center;justify-content:space-between;gap:12px;cursor:pointer;list-style:none;color:#4f6574;font-size:13px;font-weight:500}
 .market-context>summary::-webkit-details-marker{display:none}
 .market-context[open]>summary svg{transform:rotate(180deg)}
-.market-context>div{display:grid;grid-template-columns:1fr;gap:17px;margin-top:19px}
-.market-context article>div{display:flex;justify-content:space-between;align-items:baseline;gap:15px}
-.market-context h4{font-size:12px;font-weight:500;color:#536975;margin:0}
-.market-context strong{font-size:17px;font-weight:500;color:#3b5362;font-variant-numeric:tabular-nums}
-.market-context article p{font-size:11px;line-height:1.65;color:#8a979f;margin:5px 0}
-.market-context article a{display:inline-flex;gap:4px;align-items:center;font-size:10px;color:#718a9c;text-decoration:none}
-.market-context article a:hover{text-decoration:underline}
+.market-context>.overview-metric-list{margin-top:9px}
 .gmp-access{padding:23px 0;border-top:1px solid #e5e9ed;color:#455565}
 .gmp-definition{font-size:11px;line-height:1.6;color:#8b98a0;margin:-10px 0 12px}
 .gmp-authority{display:inline-flex;gap:6px;align-items:baseline;color:#657e8f;font-size:12px;line-height:1.6;text-decoration:none;margin-bottom:6px}
@@ -109,8 +90,6 @@
  .country-sections-tabs button{padding:11px 5px 10px;font-size:12px}
  .map-info-panel .country-workbench .drawer-scroll{padding:19px 20px 8px}
  .overview-import-total{font-size:26px}
- .overview-core-metrics button{padding:13px 11px}
- .overview-core-metrics button>strong{font-size:20px}
  .gmp-full .gmp-facts{grid-template-columns:1fr}
 }
 @media print{

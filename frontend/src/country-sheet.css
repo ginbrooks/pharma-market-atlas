@@ -139,82 +139,86 @@
   line-height: 1.5;
   font-weight: 650;
 }
-.country-overview .overview-core-metrics {
+.overview-core-metrics {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 0 18px;
-  border: 0;
-  border-radius: 0;
-  background: transparent;
-  overflow: visible;
 }
-.country-overview .overview-core-metrics button {
-  position: relative;
-  gap: 0;
-  padding: 12px 0 13px;
-  border-block-end: 1px solid var(--sheet-line);
-  border-radius: 0;
-  background: transparent;
-  color: var(--sheet-ink);
-  font: inherit;
+.overview-metric { min-width: 0; }
+.overview-metric > summary {
+  display: flex;
+  min-height: 44px;
+  cursor: pointer;
+  list-style: none;
+  color: var(--sheet-ink, #20342e);
+  font-size: 13px;
+  line-height: 1.5;
 }
-.country-overview .overview-core-metrics button > span {
-  justify-content: flex-start;
-  color: var(--sheet-muted);
+.overview-metric > summary::-webkit-details-marker { display: none; }
+.overview-metric > summary:focus-visible {
+  outline: 2px solid var(--sheet-accent, #21604e);
+  outline-offset: 2px;
+}
+.overview-core-metrics .overview-metric {
+  padding: 10px 0;
+  border-bottom: 1px solid var(--sheet-line, #dae2dd);
+}
+.overview-core-metrics summary {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+}
+.overview-core-metrics summary > span {
+  color: var(--sheet-muted, #5e7069);
   font-size: 12px;
-  line-height: 1.45;
 }
-.country-overview .overview-core-metrics button > strong {
-  display: block;
-  margin: 4px 0;
+.overview-metric strong { font-variant-numeric: tabular-nums; }
+.overview-core-metrics strong {
   font-size: clamp(22px, 1.9vw, 27px);
   line-height: 1.2;
   font-weight: 600;
   letter-spacing: -.035em;
 }
-.country-overview .overview-core-metrics strong small {
+.overview-core-metrics strong small {
   margin-left: 3px;
-  color: var(--sheet-muted);
+  color: var(--sheet-muted, #5e7069);
   font-size: 12px;
   font-weight: 450;
   letter-spacing: 0;
   white-space: nowrap;
 }
-.country-overview .overview-core-metrics .overview-metric-meta {
+.overview-metric-rank,
+.overview-metric-source {
+  font-size: 12px;
+  line-height: 1.55;
+  color: var(--sheet-muted, #5e7069);
+}
+.overview-metric-rank { color: var(--sheet-accent, #21604e); }
+.overview-metric-source {
   display: flex;
   flex-wrap: wrap;
+  gap: 4px 10px;
   align-items: baseline;
-  column-gap: .6em;
-  color: #64736a;
-  font-size: 11px;
-  line-height: 1.55;
+  padding: 2px 0 6px;
 }
-.country-overview .overview-metric-rank {
-  color: var(--sheet-accent);
-  white-space: nowrap;
+.overview-metric-source a {
+  color: var(--sheet-accent, #21604e);
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }
-.country-overview .overview-core-metrics button > span svg,
-.country-overview .overview-demographics button svg {
-  color: var(--sheet-accent);
-  opacity: .6;
-}
-.country-overview .overview-demographics {
-  margin-top: 7px;
-}
-.country-overview .overview-demographics button {
-  padding: 7px 0;
-  border: 0;
-  color: var(--sheet-ink);
-  font-size: 13px;
-  line-height: 1.5;
-}
-.country-overview .overview-demographics small {
-  color: var(--sheet-muted);
-  font-size: 11px;
-}
-.country-overview .overview-demographics button strong {
+.overview-demographics { margin-top: 6px; }
+.overview-metric-list summary {
+  justify-content: space-between;
   align-items: center;
-  color: var(--sheet-ink);
-  font-size: 15px;
-  font-weight: 550;
+  gap: 14px;
+}
+.overview-metric-list strong { font-size: 15px; font-weight: 550; }
+.overview-metric-list strong small { font-size: inherit; font-weight: inherit; }
+.market-context .overview-metric + .overview-metric {
+  border-top: 1px solid var(--sheet-line, #dae2dd);
+}
+@media (min-width: 850px) {
+  .country-page .overview-core-metrics { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 }
 .country-overview .country-languages { border-color: var(--sheet-line); }
 .country-overview .country-language-heading { margin-bottom: 12px; }
@@ -258,12 +262,7 @@
 }
 
 @media (hover: hover) {
-  .country-overview .overview-core-metrics button > span svg,
-  .country-overview .overview-demographics button svg { opacity: 0; }
-  .country-overview button:is(:hover, :focus-visible) > span svg,
-  .country-overview button:is(:hover, :focus-visible) > strong svg { opacity: 1; }
-  .country-overview .overview-core-metrics button:hover > strong,
-  .country-overview .overview-demographics button:hover > strong { color: var(--sheet-accent); }
+  .overview-metric > summary:hover strong { color: var(--sheet-accent, #21604e); }
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -273,11 +272,10 @@
   .country-workbench .country-drawer-heading > .icon-button {
     transition: background-color 150ms, border-color 150ms, color 150ms;
   }
-  .country-workbench :is(.drawer-actions, .overview-core-metrics, .overview-demographics) button svg {
+  .country-workbench .drawer-actions button svg {
     transition: transform 170ms, opacity 140ms;
   }
   .country-workbench .drawer-actions .primary-button:hover svg { transform: translateX(3px); }
-  .country-overview button:hover > span svg { transform: translate(1px,-1px); }
   .country-workbench :is(.market-context, .drawer-reference-sources) > summary svg { transition: transform 160ms; }
   @keyframes sheet-content-in {
     from { opacity: .4; transform: translateY(4px); }
@@ -296,6 +294,5 @@
   .country-workbench .country-sections-tabs button { min-height: 40px; padding-block: 8px; }
   .map-info-panel .country-workbench .drawer-scroll { padding-top: 15px; }
   .country-overview .overview-core-metrics { column-gap: 16px; }
-  .country-overview .overview-core-metrics button { padding-block: 9px; }
   .map-info-panel .country-workbench .drawer-actions { padding-block: 9px max(9px, env(safe-area-inset-bottom)); }
 }
